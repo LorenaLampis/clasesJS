@@ -33,8 +33,8 @@ function imprimir(){
     const socio3 = new socios (nombre3 , estado3);
     arregloSocios.push(socio3);
 
-    let nombre4 = prompt ("Ingrese el nombre del socio 3");
-    let estado4 = prompt ("Ingrese el estado del socio 3 (A: activo/ I: inactivo)");
+    let nombre4 = prompt ("Ingrese el nombre del socio 4");
+    let estado4 = prompt ("Ingrese el estado del socio 4 (A: activo/ I: inactivo)");
     const socio4 = new socios (nombre4 , estado4);
     arregloSocios.push(socio4);
 
