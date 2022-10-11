@@ -1,24 +1,24 @@
 class Socios{
 
-    static NumeroSocio = '0'
+    static numeroSocio = '0'
 
-    #Deuda;
+    #deuda;
 
-    constructor (Nombre, Apellido, Deuda){
-        this.NumeroSocio = Socios.getId();
-        this.Nombre = Nombre;
-        this.Apellido = Apellido;
-        this.#Deuda = Deuda;
+    constructor (nombre, apellido, deuda){
+        this.numeroSocio = Socios.getId();
+        this.nombre = dombre;
+        this.apellido = apellido;
+        this.#deuda = deuda;
     }
 
     static getId(){
-        Socios.NumeroSocio++
-        return Socios.NumeroSocio
+        Socios.numeroSocio++
+        return Socios.numeroSocio
     }
 
     getEstado(){
-        const DeudaActual = this.#getDeuda()     
-        if (DeudaActual<=3) {
+        const deudaActual = this.#getDeuda()     
+        if (deudaActual<=3) {
             return "A";
         }else{
             return "I"
@@ -26,40 +26,44 @@ class Socios{
     }
 
     getNombreCompleto() {
-        return `${this.Nombre} ${this.Apellido}`
+        return `${this.nombre} ${this.apellido}`
     }
 
     #getDeuda(){
-        return this.#Deuda;
+        return this.#deuda;
     }
 }
-    const ArregloSocios = [];
+    const arregloSocios = [];
 
     let n = prompt ("Ingrese el numero de socios que va a cargar");
 
     for (let i = 1; i <= n; i++) {
-        let Nombre = prompt ("Ingrese el nombre del socio " + i);
-        let Apellido = prompt ("Ingrese el apellido del socio " + i);
-        let Deuda = prompt ("Ingrese los meses impagos del socio " + i);
-        const Socio = new Socios (Nombre, Apellido, Deuda);
-        ArregloSocios.push(Socio);
+        let nombre = prompt ("Ingrese el nombre del socio " + i);
+        let apellido = prompt ("Ingrese el apellido del socio " + i);
+        let seuda = prompt ("Ingrese los meses impagos del socio " + i);
+        const socio = new Socios (nombre, apellido, deuda);
+        arregloSocios.push(socio);
         
     }
 
-    console.log(ArregloSocios);
+    console.log(arregloSocios);
 
-    const ArraySociosAct = [];
-    const ArraySociosInact = [];
+    const arraySociosAct = [];
+    const arraySociosInact = [];
 
-    for (let i = 0; i < ArregloSocios.length; i++) {
-        if (ArregloSocios[i]?.getEstado() === 'A') {
-            ArraySociosAct.push ({NumeroSocio: ArregloSocios[i].NumeroSocio, NombreCompleto: ArregloSocios[i].getNombreCompleto() });
+    for (let i = 0; i < arregloSocios.length; i++) {
+        if (arregloSocios[i]?.getEstado() === 'A') {
+            let nroSocioActivo = arregloSocios[i].numeroSocio;
+            let nombreSocioActivo = arregloSocios[i].getNombreCompleto();
+            arraySociosAct.push ({nroSocioActivo, nombreSocioActivo});
         }
-        if (ArregloSocios[i]?.getEstado() === 'I') {
-            ArraySociosInact.push ({NumeroSocio: ArregloSocios[i].NumeroSocio, NombreCompleto: ArregloSocios[i].getNombreCompleto()});
+        if (arregloSocios[i]?.getEstado() === 'I') {
+            let nroSocioInactivo = arregloSocios[i].NumeroSocio;
+            let nombreSocioInactivo = arregloSocios[i].getNombreCompleto();
+            arraySociosInact.push ({nroSocioInactivo, nombreSocioInactivo});
         }
     }
 
-    console.log ("Los socios activos son: ", ArraySociosAct);
-    console.log ("Los socios inactivos son: ", ArraySociosInact);
+    console.log ("Los socios activos son: ", arraySociosAct);
+    console.log ("Los socios inactivos son: ", arraySociosInact);
 
