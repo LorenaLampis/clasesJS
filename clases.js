@@ -1,70 +1,65 @@
-class socios{
+class Socios{
 
-    static numeroSocio = '0'
+    static NumeroSocio = '0'
 
-    #deuda;
+    #Deuda;
 
-    constructor (nombre, apellido, deuda){
-        this.numeroSocio = socios.getId();
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.#deuda = deuda;
+    constructor (Nombre, Apellido, Deuda){
+        this.NumeroSocio = Socios.getId();
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.#Deuda = Deuda;
     }
 
     static getId(){
-        socios.numeroSocio++
-        return socios.numeroSocio
+        Socios.NumeroSocio++
+        return Socios.NumeroSocio
     }
 
     getEstado(){
-        const deudaActual = this.#getDeuda()     
-        if (deudaActual<=3) {
+        const DeudaActual = this.#getDeuda()     
+        if (DeudaActual<=3) {
             return "A";
         }else{
             return "I"
         }
     }
 
-    getNombrecompleto() {
-        return `${this.nombre} ${this.apellido}`
+    getNombreCompleto() {
+        return `${this.Nombre} ${this.Apellido}`
     }
 
     #getDeuda(){
-        return this.#deuda;
+        return this.#Deuda;
     }
 }
-
-function imprimir(){
-
-    const arregloSocios = [];
+    const ArregloSocios = [];
 
     let n = prompt ("Ingrese el numero de socios que va a cargar");
 
     for (let i = 1; i <= n; i++) {
-        let nombre = prompt ("Ingrese el nombre del socio " + i);
-        let apellido = prompt ("Ingrese el apellido del socio " + i);
-        let deuda = prompt ("Ingrese los meses impagos del socio " + i);
-        const socio = new socios (nombre, apellido, deuda);
-        arregloSocios.push(socio);
+        let Nombre = prompt ("Ingrese el nombre del socio " + i);
+        let Apellido = prompt ("Ingrese el apellido del socio " + i);
+        let Deuda = prompt ("Ingrese los meses impagos del socio " + i);
+        const Socio = new Socios (Nombre, Apellido, Deuda);
+        ArregloSocios.push(Socio);
         
     }
 
-    console.log(arregloSocios);
+    console.log(ArregloSocios);
 
-    const arraySociosAct = [];
-    const arraySociosInact = [];
+    const ArraySociosAct = [];
+    const ArraySociosInact = [];
 
-    for (let i = 0; i < arregloSocios.length; i++) {
-        if (arregloSocios[i]?.getEstado() === 'A') {
-            arraySociosAct.push ({numeroSocio: arregloSocios[i].numeroSocio, nombreCompleto: arregloSocios[i].getNombrecompleto() });
+    for (let i = 0; i < ArregloSocios.length; i++) {
+        if (ArregloSocios[i]?.getEstado() === 'A') {
+            ArraySociosAct.push ({NumeroSocio: ArregloSocios[i].NumeroSocio, NombreCompleto: ArregloSocios[i].getNombreCompleto() });
         }
-        if (arregloSocios[i]?.getEstado() === 'I') {
-            arraySociosInact.push ({numeroSocio: arregloSocios[i].numeroSocio, nombreCompleto: arregloSocios[i].getNombrecompleto()});
+        if (ArregloSocios[i]?.getEstado() === 'I') {
+            ArraySociosInact.push ({NumeroSocio: ArregloSocios[i].NumeroSocio, NombreCompleto: ArregloSocios[i].getNombreCompleto()});
         }
     }
 
-    console.log ("Los socios activos son: ", arraySociosAct);
-    console.log ("Los socios inactivos son: ", arraySociosInact);
-}
+    console.log ("Los socios activos son: ", ArraySociosAct);
+    console.log ("Los socios inactivos son: ", ArraySociosInact);
 
-imprimir ();
